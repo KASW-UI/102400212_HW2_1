@@ -1,0 +1,50 @@
+# 依赖
+node_modules/
+.pnp
+.pnp.js
+
+# 构建产物
+dist/
+dist-ssr/
+*.local
+
+# 日志
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 编辑器
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite 缓存
+.vite/
+
+# ESLint
+.eslintcache
+
+# 截图/GIF（中间产物，不入版本库）
+.cache/
+playwright-report/
+test-results/
+
+# 部署相关
+nginx.conf.local
+deploy.sh.local
+
+# SQLite 数据文件（运行时生成，不入仓）
+server/data.db
+server/data.db-shm
+server/data.db-wal
+
+# 本地一次性脚本（不入仓）
+scripts/*.local.*
