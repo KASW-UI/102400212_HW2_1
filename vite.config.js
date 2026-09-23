@@ -15,6 +15,8 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     open: false,
+    // 允许 cloudflared 等内网穿透域名访问（trycloudflare / localhost 隧道）
+    allowedHosts: true,
     // 让 dev 模式下 /api/* 转到 Express 后端（默认 :3000）
     proxy: {
       '/api': {
