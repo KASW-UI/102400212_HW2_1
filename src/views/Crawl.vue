@@ -113,6 +113,26 @@ function pickFile() {
   fileInputRef.value?.click()
 }
 
+/** 把爬取到的单条论文写入数据库；用于单篇爬取后的预览入库 */
+async function ingestCrawled(index) {
+  const item = preview.value[index]
+  if (!item?.paper || item.status !== 'crawled') return
+  item.saving = true
+  try {
+    const saved = await store.add(item.paper)
+    preview.value[index] = {
+      title: saved.title,
+      paper: saved,
+      source: saved.source || 'crawled',
+      status: 'saved'
+    }
+  } catch (e) {
+    preview.value[index] = { title: item.title, error: e.message }
+  } finally {
+    item.saving = false
+  }
+}
+
 async function onFile(ev) {
   const file = ev.target.files?.[0]
   if (!file) return
@@ -237,13 +257,24 @@ async function onFile(ev) {
                 · {{ item.paper.venue }} {{ item.paper.year }}
                 <span v-if="item.paper.doi">· DOI: <code class="doi-inline">{{ item.paper.doi }}</code></span>
                 · {{ (item.paper.authors || []).slice(0, 3).join(', ') }}
+                <span v-if="item.status === 'saved'" class="tiny" style="color:var(--c-accent-3)">· 已入库</span>
               </template>
               <template v-else>
                 <span class="muted">未命中</span>
               </template>
             </div>
           </div>
-          <RouterLink v-if="item.paper" :to="`/paper/${item.paper.id}`" class="btn btn-sm">查看</RouterLink>
+          <template v-if="item.paper">
+            <!-- 已入库：可查看详情 -->
+            <RouterLink v-if="item.status === 'saved' || item.status === 'exists'" :to="`/paper/${item.paper.id}`" class="btn btn-sm btn-primary">查看</RouterLink>
+            <!-- 爬取结果（synthesized / dblp 未入库）：需要先入库 -->
+            <button
+              v-else-if="item.status === 'crawled' && !item.saving"
+              class="btn btn-sm btn-primary"
+              @click="ingestCrawled(i)"
+            >入库</button>
+            <span v-else-if="item.saving" class="tiny">入库中…</span>
+          </template>
         </div>
       </div>
     </div>
