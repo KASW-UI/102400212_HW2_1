@@ -14,7 +14,14 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    open: false
+    open: false,
+    // 让 dev 模式下 /api/* 转到 Express 后端（默认 :3000）
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true
+      }
+    }
   },
   build: {
     outDir: 'dist',
