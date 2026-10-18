@@ -37,12 +37,6 @@ const localMatches = computed(() => {
   <section>
     <header>
       <h1 class="h1">论文爬取 / 导入</h1>
-      <p class="muted">单篇输入 → 联网爬取；批量导入 → 一键入库。支持 .txt / .json 文件。</p>
-      <p class="banner banner-info" style="margin-top:8px">
-        <strong>演示数据模式</strong>：站点部署在 GitHub Pages（静态），无后端写入能力。
-        「联网爬取」「批量入库」功能已禁用。
-        如需浏览，请前往「<RouterLink to='/manage'>Manage</RouterLink>」页搜索筛选。
-      </p>
     </header>
 
     <div class="grid-2" style="margin-top:20px">

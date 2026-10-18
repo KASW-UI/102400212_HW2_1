@@ -156,11 +156,6 @@ function shareQuery() {
   <section>
     <header>
       <h1 class="h1">论文列表管理</h1>
-      <p class="muted">增、删、改、查。查询不存在时联网爬取并可一键入库。</p>
-      <p class="banner banner-info" style="margin-top:8px">
-        <strong>演示数据模式</strong>：站点部署在 GitHub Pages（静态），仅支持浏览与本地分享。
-        增 / 改 / 删 / 联网爬取已禁用。
-      </p>
     </header>
 
     <!-- 筛选 / 搜索 -->
