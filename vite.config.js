@@ -6,6 +6,9 @@ import path from 'node:path'
 // 部署到 CodeArts / 云服务器时执行 npm run build，产物在 dist/
 export default defineConfig({
   plugins: [vue()],
+  // 部署到 GitHub Pages 子路径 KASW-UI.github.io/102400212_HW2_1/
+  // 本地 dev 不受影响，仍走 /
+  base: '/102400212_HW2_1/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
