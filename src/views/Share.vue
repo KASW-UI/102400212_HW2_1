@@ -1,6 +1,10 @@
 <script setup>
 /**
- * 分享链接接收页：从 /share/:id 读出后端存的查询状态，跳转到 /manage 并复现搜索。
+ * 分享链接接收页：从 hash ?share=<id> 读出 localStorage 里的查询状态，
+ * 跳转到 /manage 并复现搜索。
+ *
+ * 注：GitHub Pages 静态部署下，分享链接是 localStorage only —— 接收方必须
+ * 在同一个浏览器（或同一台电脑）才能读到。当前浏览器不同 tab 之间共享 localStorage。
  */
 import { onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -10,9 +14,19 @@ const route = useRoute()
 const router = useRouter()
 
 onMounted(async () => {
+  // 兼容：/share/:id（旧契约）或 /share?id=<id>（新契约 hash 模式）
+  const id = route.query.id || route.params.id
+  if (!id) {
+    router.replace('/manage')
+    return
+  }
   try {
-    const payload = await api.share.get(route.params.id)
-    // 把查询条件写到 store / session，跳到 manage
+    const payload = await api.share.get(id)
+    if (!payload) {
+      alert('分享链接无效或已过期（仅在同一浏览器内有效）')
+      router.replace('/manage')
+      return
+    }
     const qs = new URLSearchParams()
     if (payload.q) qs.set('q', payload.q)
     if (payload.venue) qs.set('venue', payload.venue)

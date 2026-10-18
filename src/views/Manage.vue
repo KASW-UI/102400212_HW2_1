@@ -141,12 +141,13 @@ async function confirmDelete(paper) {
 }
 
 function shareQuery() {
+  // GitHub Pages 部署下：分享链接只存在当前浏览器 localStorage
+  // 因此 URL hash 会带 ?share=<id>，接收方在自己浏览器里能看到一致内容
   const payload = { q: searchQuery.value, venue: venue.value, year: year.value }
-  const url = `${location.origin}${location.pathname}#/share`
-  // 通过后端创建 share_id
-  api.share.create(payload).then((res) => {
-    navigator.clipboard?.writeText(res.url)
-    alert(`分享链接已复制：\n${res.url}`)
+  api.share.create(payload).then((id) => {
+    const url = `${location.origin}${location.pathname}#/share?id=${id}`
+    navigator.clipboard?.writeText(url)
+    alert(`分享链接已复制（仅在你本地浏览器可读）：\n${url}`)
   })
 }
 </script>
@@ -156,6 +157,10 @@ function shareQuery() {
     <header>
       <h1 class="h1">论文列表管理</h1>
       <p class="muted">增、删、改、查。查询不存在时联网爬取并可一键入库。</p>
+      <p class="banner banner-info" style="margin-top:8px">
+        <strong>演示数据模式</strong>：站点部署在 GitHub Pages（静态），仅支持浏览与本地分享。
+        增 / 改 / 删 / 联网爬取已禁用。
+      </p>
     </header>
 
     <!-- 筛选 / 搜索 -->
@@ -197,7 +202,7 @@ function shareQuery() {
       <div class="filters-actions">
         <button class="btn btn-primary" @click="doSearch">查询（未命中自动爬取）</button>
         <button class="btn" @click="shareQuery" :disabled="!searchQuery">生成分享链接</button>
-        <button class="btn btn-primary" @click="startCreate">＋ 新增论文</button>
+        <button class="btn btn-primary" disabled title="GitHub Pages 静态部署不支持写入">＋ 新增论文</button>
       </div>
     </div>
 
@@ -214,6 +219,7 @@ function shareQuery() {
           :key="p.id"
           :paper="p"
           compact
+          readonly
           @edit="startEdit"
           @delete="confirmDelete"
         />
@@ -234,6 +240,7 @@ function shareQuery() {
           :key="p.id"
           :paper="p"
           compact
+          readonly
           @edit="startEdit"
           @delete="confirmDelete"
         />

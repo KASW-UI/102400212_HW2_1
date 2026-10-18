@@ -1,0 +1,852 @@
+[
+  {
+    "id": "cvpr2025-10-1109-cvpr52734-2025-01291",
+    "title": "EdgeTAM: On-Device Track Anything Model",
+    "doi": "10.1109/cvpr52734.2025.01291",
+    "venue": "CVPR",
+    "year": 2025,
+    "authors": [
+      "Chong Zhou",
+      "Chenchen Zhu",
+      "Yunyang Xiong",
+      "Saksham Suri",
+      "Fanyi Xiao",
+      "Lemeng Wu",
+      "Raghuraman Krishnamoorthi",
+      "Bo Dai",
+      "Chen Change Loy",
+      "Vikas Chandra",
+      "Bilge Soran"
+    ],
+    "abstract": "On top of Segment Anything Model (SAM), SAM 2 further extends its capability from image to video inputs through a memory bank mechanism and obtains a remarkable performance compared with previous methods, making it a foundation model for video segmentation task. In this paper, we aim at making SAM 2 much more efficient so that it even runs on mobile devices while maintaining a comparable performance. Despite several works optimizing SAM for better efficiency, we find they are not sufficient for SAM 2 because they all focus on compressing the image encoder, while our benchmark shows that the newly introduced memory attention blocks are also the latency bottleneck. Given this observation, we propose EdgeTAM, which leverages a novel 2D Spatial Perceiver to reduce the computational cost. In particular, the proposed 2D Spatial Perceiver encodes the densely stored frame-level memories with a lightweight Transformer that contains a fixed set of learnable queries. Given that video segmentation is a dense prediction task, we find preserving the spatial structure of the memories is essential so that the queries are split into global-level and patch-level groups. We also propose a distillation pipeline that further improves the performance without inference overhead. As a result, EdgeTAM achieves 87.7, 70.0, 72.3, and 71.7 ${\\mathcal{J}}{{\\& }}{\\mathcal{F}}$ on DAVIS 2017, MOSE, SA-V val, and SA-V test, while running at 16 FPS on iPhone 15 Pro Max. The code and models are available here.",
+    "keywords": [
+      "sam",
+      "we",
+      "spatial",
+      "anything",
+      "memory",
+      "making"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52734.2025.01291"
+  },
+  {
+    "id": "cvpr2024-10-1109-cvpr52733-2024-00987",
+    "title": "Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data",
+    "doi": "10.1109/cvpr52733.2024.00987",
+    "venue": "CVPR",
+    "year": 2024,
+    "authors": [
+      "Lihe Yang",
+      "Bingyi Kang",
+      "Zilong Huang",
+      "Xiaogang Xu",
+      "Jiashi Feng",
+      "Hengshuang Zhao"
+    ],
+    "abstract": "This work presents Depth Anything11While the grammatical soundness of this name may be questionable, we treat it as a whole and pay homage to Segment Anything [26]., a highly practical solution for robust monocular depth estimation. Without pursuing novel technical modules, we aim to build a simple yet powerful foundation model dealing with any images under any circumstances. To this end, we scale up the dataset by designing a data engine to collect and automatically annotate large-scale unlabeled data (~62M), which significantly enlarges the data coverage and thus is able to reduce the generalization error. We investigate two simple yet effective strategies that make data scaling-up promising. First, a more challenging optimization target is created by leveraging data augmentation tools. It compels the model to actively seek extra visual knowledge and acquire robust representations. Second, an auxiliary supervision is developed to enforce the model to inherit rich semantic priors from pre-trained encoders. We evaluate its zero-shot capabilities extensively, including six public datasets and randomly captured photos. It demonstrates impressive generalization ability (Figure 1). Further, through fine-tuning it with metric depth information from NYUv2 and KITTI, new SOTAs are set. Our better depth model also results in a better depth-conditioned ControlNet. Our models are released here.",
+    "keywords": [
+      "data",
+      "depth",
+      "we",
+      "anything",
+      "large-scale",
+      "unlabeled"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52733.2024.00987"
+  },
+  {
+    "id": "iccv2023-10-1109-iccv51070-2023-00355",
+    "title": "Adding Conditional Control to Text-to-Image Diffusion Models",
+    "doi": "10.1109/iccv51070.2023.00355",
+    "venue": "ICCV",
+    "year": 2023,
+    "authors": [
+      "Lvmin Zhang",
+      "Anyi Rao",
+      "Maneesh Agrawala"
+    ],
+    "abstract": "We present ControlNet, a neural network architecture to add spatial conditioning controls to large, pretrained text-to-image diffusion models. ControlNet locks the production-ready large diffusion models, and reuses their deep and robust encoding layers pretrained with billions of images as a strong backbone to learn a diverse set of conditional controls. The neural architecture is connected with \"zero convolutions\" (zero-initialized convolution layers) that progressively grow the parameters from zero and ensure that no harmful noise could affect the finetuning. We test various conditioning controls, e.g., edges, depth, segmentation, human pose, etc., with Stable Diffusion, using single or multiple conditions, with or without prompts. We show that the training of ControlNets is robust with small (1m) datasets. Extensive results show that ControlNet may facilitate wider applications to control image diffusion models.",
+    "keywords": [
+      "diffusion",
+      "we",
+      "controlnet",
+      "controls",
+      "conditional",
+      "control"
+    ],
+    "url": "https://doi.org/10.1109/iccv51070.2023.00355"
+  },
+  {
+    "id": "cvpr2023-10-1109-cvpr52729-2023-02161",
+    "title": "Align Your Latents: High-Resolution Video Synthesis with Latent Diffusion Models",
+    "doi": "10.1109/cvpr52729.2023.02161",
+    "venue": "CVPR",
+    "year": 2023,
+    "authors": [
+      "Andreas Blattmann",
+      "Robin Rombach",
+      "Huan Ling",
+      "Tim Dockhorn",
+      "Seung Wook Kim",
+      "Sanja Fidler",
+      "Karsten Kreis"
+    ],
+    "abstract": "Latent Diffusion Models (LDMs) enable high-quality image synthesis while avoiding excessive compute demands by training a diffusion model in a compressed lower-dimensional latent space. Here, we apply the LDM paradigm to high-resolution video generation, a particularly resource-intensive task. We first pre-train an LDM on images only; then, we turn the image generator into a video generator by introducing a temporal dimension to the latent space diffusion model and finetuning on encoded image sequences, i.e., videos. Similarly, we temporally align diffusion model upsamplers, turning them into temporally consistent video super resolution models. We focus on two relevant real-world applications: Simulation of in-the-wild driving data and creative content creation with text-to-video modeling. In particular, we validate our Video LDM on real driving videos of resolution$512 \\times 1024$, achieving state-of-the-art performance. Furthermore, our approach can easily leverage off-the-shelf pretrained image LDMs, as we only need to train a temporal alignment model in that case. Doing so, we turn the publicly available, state-of-the-art text-to-image LDM Stable Diffusion into an efficient and expressive text-to-video model with resolution up to$1280 \\times 2048$. We show that the temporal layers trained in this way generalize to different finetuned text-to-image LDMs. Utilizing this property, we show the first results for personalized text-to-video generation, opening exciting directions for future content creation. Project page: https://nv-tlabs.github.io/VideoLDM/",
+    "keywords": [
+      "we",
+      "diffusion",
+      "latent",
+      "ldm",
+      "ldms",
+      "temporal"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52729.2023.02161"
+  },
+  {
+    "id": "cvpr2023-10-1109-cvpr52729-2023-01548",
+    "title": "ConvNeXt V2: Co-designing and Scaling ConvNets with Masked Autoencoders",
+    "doi": "10.1109/cvpr52729.2023.01548",
+    "venue": "CVPR",
+    "year": 2023,
+    "authors": [
+      "Sanghyun Woo",
+      "Shoubhik Debnath",
+      "Ronghang Hu",
+      "Xinlei Chen",
+      "Zhuang Liu",
+      "In So Kweon",
+      "Saining Xie"
+    ],
+    "abstract": "Driven by improved architectures and better representation learning frameworks, the field of visual recognition has enjoyed rapid modernization and performance boost in the early 2020s. For example, modern ConvNets, represented by ConvNeXt [33], have demonstrated strong performance in various scenarios. While these models were originally designed for supervised learning with ImageNet labels, they can also potentially benefit from self-supervised learning techniques such as masked autoencoders (MAE) [14]. However, we found that simply combining these two approaches leads to subpar performance. In this paper, we propose a fully convolutional masked autoencoder framework and a new Global Response Normalization (GRN) layer that can be added to the ConvNeXt architecture to enhance inter-channel feature competition. This co-design of self-supervised learning techniques and architectural improvement results in a new model family called ConvNeXt V2, which significantly improves the performance of pure ConvNets on various recognition benchmarks, including ImageNet classification, COCO detection, and ADE20K segmentation. We also provide pre-trained ConvNeXt V2 models of various sizes, ranging from an efficient 3.7M-parameter Atto model with 76.7% top-1 accuracy on ImageNet, to a 650M Huge model that achieves a state-of-the-art 88.9% accuracy using only public training data.",
+    "keywords": [
+      "convnext",
+      "learning",
+      "various",
+      "imagenet",
+      "we",
+      "recognition"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52729.2023.01548"
+  },
+  {
+    "id": "cvpr2023-10-1109-cvpr52729-2023-02155",
+    "title": "DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation",
+    "doi": "10.1109/cvpr52729.2023.02155",
+    "venue": "CVPR",
+    "year": 2023,
+    "authors": [
+      "Nataniel Ruiz",
+      "Yuanzhen Li",
+      "Varun Jampani",
+      "Yael Pritch",
+      "Michael Rubinstein",
+      "Kfir Aberman"
+    ],
+    "abstract": "Large text-to-image models achieved a remarkable leap in the evolution of AI, enabling high-quality and diverse synthesis of images from a given text prompt. However, these models lack the ability to mimic the appearance of subjects in a given reference set and synthesize novel renditions of them in different contexts. In this work, we present a new approach for “personalization” of text-to-image diffusion models. Given as input just a few images of a subject, we fine-tune a pretrained text-to-image model such that it learns to bind a unique identifier with that specific subject. Once the subject is embedded in the output domain of the model, the unique identifier can be used to synthesize novel photorealistic images of the subject contextualized in different scenes. By leveraging the semantic prior embedded in the model with a new autogenous class-specific prior preservation loss, our technique enables synthesizing the subject in diverse scenes, poses, views and lighting conditions that do not appear in the reference images. We apply our technique to several previously-unassailable tasks, including subject recontextualization, text-guided view synthesis, and artistic rendering, all while preserving the subject's key features. We also provide a new dataset and evaluation protocol for this new task of subject-driven generation. Project page: https://dreambooth.github.io/",
+    "keywords": [
+      "subject",
+      "text-to-image",
+      "we",
+      "given",
+      "dreambooth",
+      "diffusion"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52729.2023.02155"
+  },
+  {
+    "id": "cvpr2023-10-1109-cvpr52729-2023-01764",
+    "title": "InstructPix2Pix: Learning to Follow Image Editing Instructions",
+    "doi": "10.1109/cvpr52729.2023.01764",
+    "venue": "CVPR",
+    "year": 2023,
+    "authors": [
+      "Tim Brooks",
+      "Aleksander Holynski",
+      "Alexei A. Efros"
+    ],
+    "abstract": "We propose a method for editing images from human instructions: given an input image and a written instruction that tells the model what to do, our model follows these instructions to edit the image. To obtain training data for this problem, we combine the knowledge of two large pretrained models—a language model (GPT-3) and a text-to-image model (Stable Diffusion)—to generate a large dataset of image editing examples. Our conditional diffusion model, InstructPix2Pix, is trained on our generated data, and generalizes to real images and user-written instructions at inference time. Since it performs edits in the forward pass and does not require per-example fine-tuning or inversion, our model edits images quickly, in a matter of seconds. We show compelling editing results for a diverse collection of input images and written instructions.",
+    "keywords": [
+      "instructions",
+      "editing",
+      "we",
+      "instructpix2pix",
+      "input",
+      "written"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52729.2023.01764"
+  },
+  {
+    "id": "cvpr2023-10-1109-cvpr52729-2023-00037",
+    "title": "Magic3D: High-Resolution Text-to-3D Content Creation",
+    "doi": "10.1109/cvpr52729.2023.00037",
+    "venue": "CVPR",
+    "year": 2023,
+    "authors": [
+      "Chen-Hsuan Lin",
+      "Jun Gao",
+      "Luming Tang",
+      "Towaki Takikawa",
+      "Xiaohui Zeng",
+      "Xun Huang",
+      "Karsten Kreis",
+      "Sanja Fidler",
+      "Ming-Yu Liu",
+      "Tsung-Yi Lin"
+    ],
+    "abstract": "DreamFusion [31] has recently demonstrated the utility of a pretrained text-to-image diffusion model to optimize Neural Radiance Fields (NeRF) [23], achieving remarkable text-to-3D synthesis results. However, the method has two inherent limitations: (a) extremely slow optimization of NeRF and (b) low-resolution image space supervision on NeRF, leading to low-quality 3D models with a long processing time. In this paper, we address these limitations by utilizing a two-stage optimization framework. First, we obtain a coarse model using a low-resolution diffusion prior and accelerate with a sparse 3D hash grid structure. Using the coarse representation as the initialization, we further optimize a textured 3D mesh model with an efficient differentiable renderer interacting with a high-resolution latent diffusion model. Our method, dubbed Magic3D, can create high quality 3D mesh models in 40 minutes, which is 2× faster than DreamFusion (reportedly taking 1.5 hours on average), while also achieving higher resolution. User studies show 61.7% raters to prefer our approach over DreamFusion. Together with the image-conditioned generation capabilities, we provide users with new ways to control 3D synthesis, opening up new avenues to various creative applications.",
+    "keywords": [
+      "we",
+      "dreamfusion",
+      "diffusion",
+      "nerf",
+      "magic3d",
+      "high-resolution"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52729.2023.00037"
+  },
+  {
+    "id": "iccv2023-10-1109-iccv51070-2023-00371",
+    "title": "Segment Anything",
+    "doi": "10.1109/iccv51070.2023.00371",
+    "venue": "ICCV",
+    "year": 2023,
+    "authors": [
+      "Alexander Kirillov",
+      "Eric Mintun",
+      "Nikhila Ravi",
+      "Hanzi Mao",
+      "Chloe Rolland",
+      "Laura Gustafson",
+      "Tete Xiao",
+      "Spencer Whitehead",
+      "Alexander C. Berg",
+      "Wan‐Yen Lo",
+      "Piotr Dollár",
+      "Ross Girshick"
+    ],
+    "abstract": "We introduce the Segment Anything (SA) project: a new task, model, and dataset for image segmentation. Using our efficient model in a data collection loop, we built the largest segmentation dataset to date (by far), with over 1 billion masks on 11M licensed and privacy respecting images. The model is designed and trained to be promptable, so it can transfer zero-shot to new image distributions and tasks. We evaluate its capabilities on numerous tasks and find that its zero-shot performance is impressive – often competitive with or even superior to prior fully supervised results. We are releasing the Segment Anything Model (SAM) and corresponding dataset (SA-1B) of 1B masks and 11M images at segment-anything.com to foster research into foundation models for computer vision. We recommend reading the full paper at: arxiv.org/abs/2304.02643.",
+    "keywords": [
+      "we",
+      "segment",
+      "anything",
+      "dataset",
+      "segmentation",
+      "masks"
+    ],
+    "url": "https://doi.org/10.1109/iccv51070.2023.00371"
+  },
+  {
+    "id": "iccv2023-10-1109-iccv51070-2023-00127",
+    "title": "Tracking Anything with Decoupled Video Segmentation",
+    "doi": "10.1109/iccv51070.2023.00127",
+    "venue": "ICCV",
+    "year": 2023,
+    "authors": [
+      "Ho Kei Cheng",
+      "Seoung Wug Oh",
+      "Brian L. Price",
+      "Alexander Gerhard Schwing",
+      "Joon‐Young Lee"
+    ],
+    "abstract": "Training data for video segmentation are expensive to annotate. This impedes extensions of end-to-end algorithms to new video segmentation tasks, especially in large-vocabulary settings. To ‘track anything’ without training on video data for every individual task, we develop a decoupled video segmentation approach (DEVA), composed of task-specific image-level segmentation and class/task-agnostic bi-directional temporal propagation. Due to this design, we only need an image-level model for the target task (which is cheaper to train) and a universal temporal propagation model which is trained once and generalizes across tasks. To effectively combine these two modules, we use bi-directional propagation for (semi-)online fusion of segmentation hypotheses from different frames to generate a coherent segmentation. We show that this decoupled formulation compares favorably to end-to-end approaches in several data-scarce tasks including large-vocabulary video panoptic segmentation, open-world video segmentation, referring video segmentation, and unsupervised video object segmentation. Code is available at: hkchengrex.github.io/Tracking-Anything-with-DEVA.",
+    "keywords": [
+      "segmentation",
+      "we",
+      "decoupled",
+      "propagation",
+      "anything",
+      "training"
+    ],
+    "url": "https://doi.org/10.1109/iccv51070.2023.00127"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-01167",
+    "title": "A ConvNet for the 2020s",
+    "doi": "10.1109/cvpr52688.2022.01167",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Zhuang Liu",
+      "Hanzi Mao",
+      "Chao-Yuan Wu",
+      "Christoph Feichtenhofer",
+      "Trevor Jackson Darrell",
+      "Saining Xie"
+    ],
+    "abstract": "The “Roaring 20s” of visual recognition began with the introduction of Vision Transformers (ViTs), which quickly superseded ConvNets as the state-of-the-art image classification model. A vanilla ViT, on the other hand, faces difficulties when applied to general computer vision tasks such as object detection and semantic segmentation. It is the hierarchical Transformers (e.g., Swin Transformers) that reintroduced several ConvNet priors, making Transformers practically viable as a generic vision backbone and demonstrating remarkable performance on a wide variety of vision tasks. However, the effectiveness of such hybrid approaches is still largely credited to the intrinsic superiority of Transformers, rather than the inherent inductive biases of convolutions. In this work, we reexamine the design spaces and test the limits of what a pure ConvNet can achieve. We gradually “modernize” a standard ResNet toward the design of a vision Transformer, and discover several key components that contribute to the performance difference along the way. The outcome of this exploration is a family of pure ConvNet models dubbed ConvNeXt. Constructed entirely from standard ConvNet modules, ConvNeXts compete favorably with Transformers in terms of accuracy and scalability, achieving 87.8% ImageNet top-1 accuracy and outperforming Swin Transformers on COCO detection and ADE20K segmentation, while maintaining the simplicity and efficiency of standard ConvNets.",
+    "keywords": [
+      "transformers",
+      "convnet",
+      "vision",
+      "standard",
+      "convnets",
+      "detection"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.01167"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-01069",
+    "title": "Grounded Language-Image Pre-training",
+    "doi": "10.1109/cvpr52688.2022.01069",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Liunian Harold Li",
+      "Pengchuan Zhang",
+      "Haotian Zhang",
+      "Jianwei Yang",
+      "Chunyuan Li",
+      "Yiwu Zhong",
+      "Lijuan Wang",
+      "Lu Yuan",
+      "Lei Zhang",
+      "Jenq–Neng Hwang",
+      "Kai-Wei Chang",
+      "Jianfeng Gao"
+    ],
+    "abstract": "This paper presents a grounded language-image pretraining (GLIP) model for learning object-level, language-aware, and semantic-rich visual representations. GLIP unifies object detection and phrase grounding for pre-training. The unification brings two benefits: 1) it allows GLIP to learn from both detection and grounding data to improve both tasks and bootstrap a good grounding model; 2) GLIP can leverage massive image-text pairs by generating grounding boxes in a self-training fashion, making the learned representations semantic-rich. In our experiments, we pre-train GLIP on 27M grounding data, including 3M human-annotated and 24M web-crawled image-text pairs. The learned representations demonstrate strong zero-shot and few-shot transferability to various object-level recognition tasks. 1) When directly evaluated on COCO and LVIS (without seeing any images in COCO during pre-training), GLIP achieves 49.8 AP and 26.9 AP, respectively, surpassing many supervised baselines.11Supervised baselines on COCO object detection: Faster-RCNN w/ ResNet50 (40.2) or ResNet101 (42.0), and DyHead w/ Swin-Tiny (49.7). 2) After fine-tuned on COCO, GLIP achieves 60.8 AP on val and 61.5 AP on test-dev, surpassing prior SoTA. 3) When transferred to 13 downstream object detection tasks, a 1-shot GLIP rivals with a fully-supervised Dynamic Head. Code will be released at https://github.com/microsoft/GLIP.",
+    "keywords": [
+      "glip",
+      "grounding",
+      "detection",
+      "coco",
+      "ap",
+      "pre-training"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.01069"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-01042",
+    "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+    "doi": "10.1109/cvpr52688.2022.01042",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Robin Rombach",
+      "Andreas Blattmann",
+      "Dominik Lorenz",
+      "Patrick Esser",
+      "Björn Ommer"
+    ],
+    "abstract": "By decomposing the image formation process into a sequential application of denoising autoencoders, diffusion models (DMs) achieve state-of-the-art synthesis results on image data and beyond. Additionally, their formulation allows for a guiding mechanism to control the image generation process without retraining. However, since these models typically operate directly in pixel space, optimization of powerful DMs often consumes hundreds of GPU days and inference is expensive due to sequential evaluations. To enable DM training on limited computational resources while retaining their quality and flexibility, we apply them in the latent space of powerful pretrained autoencoders. In contrast to previous work, training diffusion models on such a representation allows for the first time to reach a near-optimal point between complexity reduction and detail preservation, greatly boosting visual fidelity. By introducing cross-attention layers into the model architecture, we turn diffusion models into powerful and flexible generators for general conditioning inputs such as text or bounding boxes and high-resolution synthesis becomes possible in a convolutional manner. Our latent diffusion models (LDMs) achieve new state of the art scores for image inpainting and class-conditional image synthesis and highly competitive performance on various tasks, including unconditional image generation, text-to-image synthesis, and super-resolution, while significantly reducing computational requirements compared to pixel-based DMs.",
+    "keywords": [
+      "synthesis",
+      "diffusion",
+      "latent",
+      "dms",
+      "powerful",
+      "high-resolution"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.01042"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-01553",
+    "title": "Masked Autoencoders Are Scalable Vision Learners",
+    "doi": "10.1109/cvpr52688.2022.01553",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Kaiming He",
+      "Xinlei Chen",
+      "Saining Xie",
+      "Yanghao Li",
+      "Piotr Dollár",
+      "Ross Girshick"
+    ],
+    "abstract": "This paper shows that masked autoencoders (MAE) are scalable self-supervised learners for computer vision. Our MAE approach is simple: we mask random patches of the input image and reconstruct the missing pixels. It is based on two core designs. First, we develop an asymmetric encoder-decoder architecture, with an encoder that operates only on the visible subset of patches (without mask tokens), along with a lightweight decoder that reconstructs the original image from the latent representation and mask tokens. Second, we find that masking a high proportion of the input image, e.g., 75%, yields a nontrivial and meaningful self-supervisory task. Coupling these two designs enables us to train large models efficiently and effectively: we accelerate training (by 3× or more) and improve accuracy. Our scalable approach allows for learning high-capacity models that generalize well: e.g., a vanilla ViT-Huge model achieves the best accuracy (87.8%) among methods that use only ImageNet-1K data. Transfer performance in downstream tasks outperforms supervised pretraining and shows promising scaling behavior.",
+    "keywords": [
+      "we",
+      "scalable",
+      "mask",
+      "masked",
+      "autoencoders",
+      "vision"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.01553"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-00135",
+    "title": "Masked-attention Mask Transformer for Universal Image Segmentation",
+    "doi": "10.1109/cvpr52688.2022.00135",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Bowen Cheng",
+      "Ishan Misra",
+      "Alexander Gerhard Schwing",
+      "Alexander Kirillov",
+      "Rohit Girdhar"
+    ],
+    "abstract": "Image segmentation groups pixels with different semantics, e.g., category or instance membership. Each choice of semantics defines a task. While only the semantics of each task differ, current research focuses on designing spe-cialized architectures for each task. We present Masked- attention Mask Transformer (Mask2Former), a new archi-tecture capable of addressing any image segmentation task (panoptic, instance or semantic). Its key components in-clude masked attention, which extracts localized features by constraining cross-attention within predicted mask regions. In addition to reducing the research effort by at least three times, it outperforms the best specialized architectures by a significant margin on four popular datasets. Most no-tably, Mask2Former sets a new state-of-the-art for panoptic segmentation (57.8 PQ on COCO), instance segmentation (50.1 AP on COCO) and semantic segmentation (57.7 mIoU onADE20K).",
+    "keywords": [
+      "segmentation",
+      "mask2former",
+      "mask",
+      "semantics",
+      "instance",
+      "transformer"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.00135"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-01055",
+    "title": "MetaFormer is Actually What You Need for Vision",
+    "doi": "10.1109/cvpr52688.2022.01055",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Weihao Yu",
+      "Mi Luo",
+      "Pan Zhou",
+      "Chenyang Si",
+      "Yichen Zhou",
+      "Xinchao Wang",
+      "Jiashi Feng",
+      "Shuicheng Yan"
+    ],
+    "abstract": "Transformers have shown great potential in computer vision tasks. A common belief is their attention-based token mixer module contributes most to their competence. However, recent works show the attention-based module in transformers can be replaced by spatial MLPs and the resulted models still perform quite well. Based on this observation, we hypothesize that the general architecture of the transformers, instead of the specific token mixer module, is more essential to the model's performance. To verify this, we deliberately replace the attention module in transformers with an embarrassingly simple spatial pooling operator to conduct only basic token mixing. Surprisingly, we observe that the derived model, termed as PoolFormer, achieves competitive performance on multiple computer vision tasks. For example, on ImageNet-1K, PoolFormer achieves 82.1 % top-1 accuracy, surpassing well-tuned vision transformer/MLP-like baselines DeiT-B/ResMLP-B24 by 0.3%/1.1% accuracy with 35%/52% fewer parameters and 49%/61% fewer MACs. The effectiveness of Pool-Former verifies our hypothesis and urges us to initiate the concept of “MetaFormer”, a general architecture abstracted from transformers without specifying the token mixer. Based on the extensive experiments, we argue that MetaFormer is the key player in achieving superior results for recent transformer and MLP-like models on vision tasks. This work calls for more future research dedicated to improving MetaFormer instead of focusing on the token mixer modules. Additionally, our proposed PoolFormer could serve as a starting baseline for future MetaFormer architecture design.",
+    "keywords": [
+      "metaformer",
+      "vision",
+      "transformers",
+      "token",
+      "poolformer",
+      "mixer"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.01055"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-00564",
+    "title": "Restormer: Efficient Transformer for High-Resolution Image Restoration",
+    "doi": "10.1109/cvpr52688.2022.00564",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Syed Waqas Zamir",
+      "Aditya Arora",
+      "Salman Khan",
+      "Munawar Hayat",
+      "Fahad Shahbaz Khan",
+      "Ming–Hsuan Yang"
+    ],
+    "abstract": "Since convolutional neural networks (CNNs) perform well at learning generalizable image priors from large-scale data, these models have been extensively applied to image restoration and related tasks. Recently, another class of neural architectures, Transformers, have shown significant performance gains on natural language and high-level vision tasks. While the Transformer model mitigates the shortcomings of CNNs (i.e., limited receptive field and inadaptability to input content), its computational complexity grows quadratically with the spatial resolution, therefore making it infeasible to apply to most image restoration tasks involving high-resolution images. In this work, we propose an efficient Transformer model by making several key designs in the building blocks (multi-head attention and feed-forward network) such that it can capture long-range pixel interactions, while still remaining applicable to large images. Our model, named Restoration Transformer (Restormer), achieves state-of-the-art results on several image restoration tasks, including image deraining, single-image motion deblurring, defocus deblurring (single-image and dual-pixel data), and image denoising (Gaussian grayscale/color denoising, and real image denoising). The source code and pre-trained models are available at https://github.com/swz30/Restormer.",
+    "keywords": [
+      "restoration",
+      "transformer",
+      "restormer",
+      "denoising",
+      "high-resolution",
+      "neural"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.00564"
+  },
+  {
+    "id": "cvpr2022-10-1109-cvpr52688-2022-01738",
+    "title": "Towards Language-Free Training for Text-to-Image Generation",
+    "doi": "10.1109/cvpr52688.2022.01738",
+    "venue": "CVPR",
+    "year": 2022,
+    "authors": [
+      "Yufan Zhou",
+      "Ruiyi Zhang",
+      "Changyou Chen",
+      "Chunyuan Li",
+      "Chris Tensmeyer",
+      "Tong Yu",
+      "Jiuxiang Gu",
+      "Jinhui Xu",
+      "Tong Sun"
+    ],
+    "abstract": "One of the major challenges in training text-to-image generation models is the need of a large number of highquality image-text pairs. While image samples are often easily accessible, the associated text descriptions typically require careful human captioning, which is particularly time- and cost-consuming. In this paper, we propose the first work to train text-to-image generation models without any text data. Our method leverages the well-aligned multi-modal semantic space of the powerful pre-trained CLIP model: the requirement of text-conditioning is seamlessly alleviated via generating text features from image features. Extensive experiments are conducted to illustrate the effectiveness of the proposed method. We obtain state-of-the-art results in the standard text-to-image generation tasks. Importantly, the proposed language-free model outperforms most existing models trained with full image-text pairs. Furthermore, our method can be applied in fine-tuning pretrained models, which saves both training time and cost in training text-to-image generation models. Our pre-trained model obtains competitive results in zero-shot text-to-image generation on the MS-COCO dataset, yet with around only 1% of the model size and training data size relative to the recently proposed large DALL-E model.",
+    "keywords": [
+      "text-to-image",
+      "generation",
+      "training",
+      "text",
+      "dall-e",
+      "zero-shot"
+    ],
+    "url": "https://doi.org/10.1109/cvpr52688.2022.01738"
+  },
+  {
+    "id": "cvpr2021-10-1109-cvpr46437-2021-01549",
+    "title": "Exploring Simple Siamese Representation Learning",
+    "doi": "10.1109/cvpr46437.2021.01549",
+    "venue": "CVPR",
+    "year": 2021,
+    "authors": [
+      "Xinlei Chen",
+      "Kaiming He"
+    ],
+    "abstract": "Siamese networks have become a common structure in various recent models for unsupervised visual representation learning. These models maximize the similarity between two augmentations of one image, subject to certain conditions for avoiding collapsing solutions. In this paper, we report surprising empirical results that simple Siamese networks can learn meaningful representations even using none of the following: (i) negative sample pairs, (ii) large batches, (iii) momentum encoders. Our experiments show that collapsing solutions do exist for the loss and structure, but a stop-gradient operation plays an essential role in preventing collapsing. We provide a hypothesis on the implication of stop-gradient, and further show proof-of-concept experiments verifying it. Our \"SimSiam\" method achieves competitive results on ImageNet and downstream tasks. We hope this simple baseline will motivate people to rethink the roles of Siamese architectures for unsupervised representation learning. Code is made available.1",
+    "keywords": [
+      "siamese",
+      "simple",
+      "representation",
+      "learning",
+      "collapsing",
+      "we"
+    ],
+    "url": "https://doi.org/10.1109/cvpr46437.2021.01549"
+  },
+  {
+    "id": "cvpr2021-10-1109-cvpr46437-2021-00881",
+    "title": "LoFTR: Detector-Free Local Feature Matching with Transformers",
+    "doi": "10.1109/cvpr46437.2021.00881",
+    "venue": "CVPR",
+    "year": 2021,
+    "authors": [
+      "Jiaming Sun",
+      "Zehong Shen",
+      "Yuang Wang",
+      "Hujun Bao",
+      "Xiaowei Zhou"
+    ],
+    "abstract": "We present a novel method for local image feature matching. Instead of performing image feature detection, description, and matching sequentially, we propose to first establish pixel-wise dense matches at a coarse level and later refine the good matches at a fine level. In contrast to dense methods that use a cost volume to search correspondences, we use self and cross attention layers in Transformer to obtain feature descriptors that are conditioned on both images. The global receptive field provided by Transformer enables our method to produce dense matches in low-texture areas, where feature detectors usually struggle to produce repeatable interest points. The experiments on indoor and outdoor datasets show that LoFTR outperforms state-of-the-art methods by a large margin. LoFTR also ranks first on two public benchmarks of visual localization among the published methods. Code is available at our project page: https://zju3dv.github.io/loftr/.",
+    "keywords": [
+      "loftr",
+      "matching",
+      "we",
+      "dense",
+      "matches",
+      "local"
+    ],
+    "url": "https://doi.org/10.1109/cvpr46437.2021.00881"
+  },
+  {
+    "id": "iccv2021-10-1109-iccv48922-2021-00580",
+    "title": "Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields",
+    "doi": "10.1109/iccv48922.2021.00580",
+    "venue": "ICCV",
+    "year": 2021,
+    "authors": [
+      "Jonathan T. Barron",
+      "Ben Mildenhall",
+      "Matthew Tancik",
+      "Peter Hedman",
+      "Ricardo Martin-Brualla",
+      "Pratul P. Srinivasan"
+    ],
+    "abstract": "The rendering procedure used by neural radiance fields (NeRF) samples a scene with a single ray per pixel and may therefore produce renderings that are excessively blurred or aliased when training or testing images observe scene content at different resolutions. The straightforward solution of supersampling by rendering with multiple rays per pixel is impractical for NeRF, because rendering each ray requires querying a multilayer perceptron hundreds of times. Our solution, which we call \"mip-NeRF\" (à la \"mipmap\"), extends NeRF to represent the scene at a continuously-valued scale. By efficiently rendering anti-aliased conical frustums instead of rays, mip-NeRF reduces objectionable aliasing artifacts and significantly improves NeRF’s ability to represent fine details, while also being 7% faster than NeRF and half the size. Compared to NeRF, mip-NeRF reduces average error rates by 17% on the dataset presented with NeRF and by 60% on a challenging multiscale variant of that dataset that we present. Mip-NeRF is also able to match the accuracy of a brute-force supersampled NeRF on our multiscale dataset while being 22× faster.",
+    "keywords": [
+      "nerf",
+      "mip-nerf",
+      "rendering",
+      "multiscale",
+      "scene",
+      "dataset"
+    ],
+    "url": "https://doi.org/10.1109/iccv48922.2021.00580"
+  },
+  {
+    "id": "iccv2021-10-1109-iccv48922-2021-00717",
+    "title": "Segmenter: Transformer for Semantic Segmentation",
+    "doi": "10.1109/iccv48922.2021.00717",
+    "venue": "ICCV",
+    "year": 2021,
+    "authors": [
+      "Robin Strudel",
+      "Ricardo Alexandrino Garcia",
+      "Ivan Laptev A",
+      "Cordelia Schmid"
+    ],
+    "abstract": "Image segmentation is often ambiguous at the level of individual image patches and requires contextual information to reach label consensus. In this paper we introduce Segmenter, a transformer model for semantic segmentation. In contrast to convolution-based methods, our approach allows to model global context already at the first layer and throughout the network. We build on the recent Vision Transformer (ViT) and extend it to semantic segmentation. To do so, we rely on the output embeddings corresponding to image patches and obtain class labels from these embed-dings with a point-wise linear decoder or a mask trans-former decoder. We leverage models pre-trained for image classification and show that we can fine-tune them on moderate sized datasets available for semantic segmentation. The linear decoder allows to obtain excellent results already, but the performance can be further improved by a mask transformer generating class masks. We conduct an extensive ablation study to show the impact of the different parameters, in particular the performance is better for large models and small patch sizes. Segmenter attains excellent results for semantic segmentation. It outperforms the state of the art on both ADE20K and Pascal Context datasets and is competitive on Cityscapes.",
+    "keywords": [
+      "segmentation",
+      "we",
+      "semantic",
+      "transformer",
+      "segmenter",
+      "decoder"
+    ],
+    "url": "https://doi.org/10.1109/iccv48922.2021.00717"
+  },
+  {
+    "id": "iccv2021-10-1109-iccv48922-2021-00986",
+    "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+    "doi": "10.1109/iccv48922.2021.00986",
+    "venue": "ICCV",
+    "year": 2021,
+    "authors": [
+      "Ze Liu",
+      "Yutong Lin",
+      "Yue Cao",
+      "Han Hu",
+      "Yixuan Wei",
+      "Zheng Zhang",
+      "Stephen Ching-Feng Lin",
+      "Baining Guo"
+    ],
+    "abstract": "This paper presents a new vision Transformer, called Swin Transformer, that capably serves as a general-purpose backbone for computer vision. Challenges in adapting Transformer from language to vision arise from differences between the two domains, such as large variations in the scale of visual entities and the high resolution of pixels in images compared to words in text. To address these differences, we propose a hierarchical Transformer whose representation is computed with Shifted windows. The shifted windowing scheme brings greater efficiency by limiting self-attention computation to non-overlapping local windows while also allowing for cross-window connection. This hierarchical architecture has the flexibility to model at various scales and has linear computational complexity with respect to image size. These qualities of Swin Transformer make it compatible with a broad range of vision tasks, including image classification (87.3 top-1 accuracy on ImageNet-1K) and dense prediction tasks such as object detection (58.7 box AP and 51.1 mask AP on COCO test-dev) and semantic segmentation (53.5 mIoU on ADE20K val). Its performance surpasses the previous state-of-the-art by a large margin of +2.7 box AP and +2.6 mask AP on COCO, and +3.2 mIoU on ADE20K, demonstrating the potential of Transformer-based models as vision backbones. The hierarchical design and the shifted window approach also prove beneficial for all-MLP architectures. The code and models are publicly available at https://github.com/microsoft/Swin-Transformer.",
+    "keywords": [
+      "transformer",
+      "vision",
+      "hierarchical",
+      "shifted",
+      "ap",
+      "swin"
+    ],
+    "url": "https://doi.org/10.1109/iccv48922.2021.00986"
+  },
+  {
+    "id": "iccv2021-10-1109-iccv48922-2021-00060",
+    "title": "Tokens-to-Token ViT: Training Vision Transformers from Scratch on ImageNet",
+    "doi": "10.1109/iccv48922.2021.00060",
+    "venue": "ICCV",
+    "year": 2021,
+    "authors": [
+      "Li Yuan",
+      "Yunpeng Chen",
+      "Tao Wang",
+      "Weihao Yu",
+      "Yujun Shi",
+      "Zihang Jiang",
+      "Francis E. H. Tay",
+      "Jiashi Feng",
+      "Shuicheng Yan"
+    ],
+    "abstract": "Transformers, which are popular for language modeling, have been explored for solving vision tasks recently, e.g., the Vision Transformer (ViT) for image classification. The ViT model splits each image into a sequence of tokens with fixed length and then applies multiple Transformer layers to model their global relation for classification. However, ViT achieves inferior performance to CNNs when trained from scratch on a midsize dataset like ImageNet. We find it is because: 1) the simple tokenization of input images fails to model the important local structure such as edges and lines among neighboring pixels, leading to low training sample efficiency; 2) the redundant attention backbone design of ViT leads to limited feature richness for fixed computation budgets and limited training samples. To overcome such limitations, we propose a new Tokens-To-Token Vision Transformer (T2T-VTT), which incorporates 1) a layer-wise Tokens-to-Token (T2T) transformation to progressively structurize the image to tokens by recursively aggregating neighboring Tokens into one Token (Tokens-to-Token), such that local structure represented by surrounding tokens can be modeled and tokens length can be reduced; 2) an efficient backbone with a deep-narrow structure for vision transformer motivated by CNN architecture design after empirical study. Notably, T2T-ViT reduces the parameter count and MACs of vanilla ViT by half, while achieving more than 3.0% improvement when trained from scratch on ImageNet. It also outperforms ResNets and achieves comparable performance with MobileNets by directly training on ImageNet. For example, T2T-ViT with comparable size to ResNet50 (21.5M parameters) can achieve 83.3% top1 accuracy in image resolution 384x384 on ImageNet.1",
+    "keywords": [
+      "vit",
+      "tokens",
+      "tokens-to-token",
+      "training",
+      "vision",
+      "transformer"
+    ],
+    "url": "https://doi.org/10.1109/iccv48922.2021.00060"
+  },
+  {
+    "id": "cvpr2020-10-1109-cvpr42600-2020-01079",
+    "title": "EfficientDet: Scalable and Efficient Object Detection",
+    "doi": "10.1109/cvpr42600.2020.01079",
+    "venue": "CVPR",
+    "year": 2020,
+    "authors": [
+      "Mingxing Tan",
+      "Ruoming Pang",
+      "Quoc Viet Le"
+    ],
+    "abstract": "Model efficiency has become increasingly important in computer vision. In this paper, we systematically study neural network architecture design choices for object detection and propose several key optimizations to improve efficiency. First, we propose a weighted bi-directional feature pyramid network (BiFPN), which allows easy and fast multi-scale feature fusion; Second, we propose a compound scaling method that uniformly scales the resolution, depth, and width for all backbone, feature network, and box/class prediction networks at the same time. Based on these optimizations and EfficientNet backbones, we have developed a new family of object detectors, called EfficientDet, which consistently achieve much better efficiency than prior art across a wide spectrum of resource constraints. In particular, with single-model and single-scale, our EfficientDet-D7 achieves state-of-the-art 52.2 AP on COCO test-dev with 52M parameters and 325B FLOPs1, being 4x - 9x smaller and using 13x - 42x fewer FLOPs than previous detector. Code is available at https://github.com/google/ automl/tree/master/efficientdet.",
+    "keywords": [
+      "we",
+      "efficientdet",
+      "object",
+      "efficiency",
+      "network",
+      "detection"
+    ],
+    "url": "https://doi.org/10.1109/cvpr42600.2020.01079"
+  },
+  {
+    "id": "cvpr2020-10-1109-cvpr42600-2020-00975",
+    "title": "Momentum Contrast for Unsupervised Visual Representation Learning",
+    "doi": "10.1109/cvpr42600.2020.00975",
+    "venue": "CVPR",
+    "year": 2020,
+    "authors": [
+      "Kaiming He",
+      "Haoqi Fan",
+      "Yuxin Wu",
+      "Saining Xie",
+      "Ross Girshick"
+    ],
+    "abstract": "We present Momentum Contrast (MoCo) for unsupervised visual representation learning. From a perspective on contrastive learning as dictionary look-up, we build a dynamic dictionary with a queue and a moving-averaged encoder. This enables building a large and consistent dictionary on-the-fly that facilitates contrastive unsupervised learning. MoCo provides competitive results under the common linear protocol on ImageNet classification. More importantly, the representations learned by MoCo transfer well to downstream tasks. MoCo can outperform its supervised pre-training counterpart in 7 detection/segmentation tasks on PASCAL VOC, COCO, and other datasets, sometimes surpassing it by large margins. This suggests that the gap between unsupervised and supervised representation learning has been largely closed in many vision tasks.",
+    "keywords": [
+      "moco",
+      "learning",
+      "unsupervised",
+      "representation",
+      "dictionary",
+      "momentum"
+    ],
+    "url": "https://doi.org/10.1109/cvpr42600.2020.00975"
+  },
+  {
+    "id": "cvpr2019-10-1109-cvpr-2019-00293",
+    "title": "MnasNet: Platform-Aware Neural Architecture Search for Mobile",
+    "doi": "10.1109/cvpr.2019.00293",
+    "venue": "CVPR",
+    "year": 2019,
+    "authors": [
+      "Mingxing Tan",
+      "Bo Chen",
+      "Ruoming Pang",
+      "Vijay Vasudevan",
+      "Mark Sandler",
+      "Andrew Howard",
+      "Quoc Viet Le"
+    ],
+    "abstract": "Designing convolutional neural networks (CNN) for mobile devices is challenging because mobile models need to be small and fast, yet still accurate. Although significant efforts have been dedicated to design and improve mobile CNNs on all dimensions, it is very difficult to manually balance these trade-offs when there are so many architectural possibilities to consider. In this paper, we propose an automated mobile neural architecture search (MNAS) approach, which explicitly incorporate model latency into the main objective so that the search can identify a model that achieves a good trade-off between accuracy and latency. Unlike previous work, where latency is considered via another, often inaccurate proxy (e.g., FLOPS), our approach directly measures real-world inference latency by executing the model on mobile phones. To further strike the right balance between flexibility and search space size, we propose a novel factorized hierarchical search space that encourages layer diversity throughout the network. Experimental results show that our approach consistently outperforms state-of-the-art mobile CNN models across multiple vision tasks. On the ImageNet classification task, our MnasNet achieves 75.2% top-1 accuracy with 78ms latency on a Pixel phone, which is 1.8× faster than MobileNetV2 with 0.5% higher accuracy and 2.3× faster than NASNet with 1.2% higher accuracy. Our MnasNet also achieves better mAP quality than MobileNets for COCO object detection. Code is at https://github.com/tensorflow/tpu/tree/master/models/official/mnasnet.",
+    "keywords": [
+      "mobile",
+      "search",
+      "latency",
+      "mnasnet",
+      "accuracy",
+      "neural"
+    ],
+    "url": "https://doi.org/10.1109/cvpr.2019.00293"
+  },
+  {
+    "id": "iccv2019-10-1109-iccv-2019-00113",
+    "title": "Pixel2Mesh++: Multi-View 3D Mesh Generation via Deformation",
+    "doi": "10.1109/iccv.2019.00113",
+    "venue": "ICCV",
+    "year": 2019,
+    "authors": [
+      "Chao Wen",
+      "Yinda Zhang",
+      "Zhuwen Li",
+      "Yanwei Fu"
+    ],
+    "abstract": "We study the problem of shape generation in 3D mesh representation from a few color images with known camera poses. While many previous works learn to hallucinate the shape directly from priors, we resort to further improving the shape quality by leveraging cross-view information with a graph convolutional network. Instead of building a direct mapping function from images to 3D shape, our model learns to predict series of deformations to improve a coarse shape iteratively. Inspired by traditional multiple view geometry methods, our network samples nearby area around the initial mesh's vertex locations and reasons an optimal deformation using perceptual feature statistics built from multiple input images. Extensive experiments show that our model produces accurate 3D shape that are not only visually plausible from the input perspectives, but also well aligned to arbitrary viewpoints. With the help of physically driven architecture, our model also exhibits generalization capability across different semantic categories, number of input images, and quality of mesh initialization.",
+    "keywords": [
+      "shape",
+      "from",
+      "mesh",
+      "input",
+      "generation",
+      "deformation"
+    ],
+    "url": "https://doi.org/10.1109/iccv.2019.00113"
+  },
+  {
+    "id": "cvpr2018-10-1109-cvpr-2018-00984",
+    "title": "Deep Image Prior",
+    "doi": "10.1109/cvpr.2018.00984",
+    "venue": "CVPR",
+    "year": 2018,
+    "authors": [
+      "Victor Lempitsky",
+      "Andrea Vedaldi",
+      "Dmitry Ulyanov"
+    ],
+    "abstract": "Deep convolutional networks have become a popular tool for image generation and restoration. Generally, their excellent performance is imputed to their ability to learn realistic image priors from a large number of example images. In this paper, we show that, on the contrary, the structure of a generator network is sufficient to capture a great deal of low-level image statistics prior to any learning. In order to do so, we show that a randomly-initialized neural network can be used as a handcrafted prior with excellent results in standard inverse problems such as denoising, superresolution, and inpainting. Furthermore, the same prior can be used to invert deep neural representations to diagnose them, and to restore images based on flash-no flash input pairs. Apart from its diverse applications, our approach highlights the inductive bias captured by standard generator network architectures. It also bridges the gap between two very popular families of image restoration methods: learning-based methods using deep convolutional networks and learning-free methods based on handcrafted image priors such as self-similarity.",
+    "keywords": [
+      "deep",
+      "prior",
+      "network",
+      "convolutional",
+      "networks",
+      "popular"
+    ],
+    "url": "https://doi.org/10.1109/cvpr.2018.00984"
+  },
+  {
+    "id": "cvpr2018-10-1109-cvpr-2018-00474",
+    "title": "MobileNetV2: Inverted Residuals and Linear Bottlenecks",
+    "doi": "10.1109/cvpr.2018.00474",
+    "venue": "CVPR",
+    "year": 2018,
+    "authors": [
+      "Mark Sandler",
+      "Andrew Howard",
+      "Menglong Zhu",
+      "Andrey Zhmoginov",
+      "Liang-Chieh Chen"
+    ],
+    "abstract": "In this paper we describe a new mobile architecture, MobileNetV2, that improves the state of the art performance of mobile models on multiple tasks and benchmarks as well as across a spectrum of different model sizes. We also describe efficient ways of applying these mobile models to object detection in a novel framework we call SSDLite. Additionally, we demonstrate how to build mobile semantic segmentation models through a reduced form of DeepLabv3 which we call Mobile DeepLabv3. is based on an inverted residual structure where the shortcut connections are between the thin bottleneck layers. The intermediate expansion layer uses lightweight depthwise convolutions to filter features as a source of non-linearity. Additionally, we find that it is important to remove non-linearities in the narrow layers in order to maintain representational power. We demonstrate that this improves performance and provide an intuition that led to this design. Finally, our approach allows decoupling of the input/output domains from the expressiveness of the transformation, which provides a convenient framework for further analysis. We measure our performance on ImageNet [1] classification, COCO object detection [2], VOC image segmentation [3]. We evaluate the trade-offs between accuracy, and number of operations measured by multiply-adds (MAdd), as well as actual latency, and the number of parameters.",
+    "keywords": [
+      "we",
+      "mobile",
+      "mobilenetv2",
+      "inverted",
+      "describe",
+      "improves"
+    ],
+    "url": "https://doi.org/10.1109/cvpr.2018.00474"
+  },
+  {
+    "id": "cvpr2017-10-1109-cvpr-2017-632",
+    "title": "Image-to-Image Translation with Conditional Adversarial Networks",
+    "doi": "10.1109/cvpr.2017.632",
+    "venue": "CVPR",
+    "year": 2017,
+    "authors": [
+      "Phillip Isola",
+      "Jun-Yan Zhu",
+      "Tinghui Zhou",
+      "Alexei A. Efros"
+    ],
+    "abstract": "We investigate conditional adversarial networks as a general-purpose solution to image-to-image translation problems. These networks not only learn the mapping from input image to output image, but also learn a loss function to train this mapping. This makes it possible to apply the same generic approach to problems that traditionally would require very different loss formulations. We demonstrate that this approach is effective at synthesizing photos from label maps, reconstructing objects from edge maps, and colorizing images, among other tasks. Moreover, since the release of the pi×2pi× software associated with this paper, hundreds of twitter users have posted their own artistic experiments using our system. As a community, we no longer hand-engineer our mapping functions, and this work suggests we can achieve reasonable results without handengineering our loss functions either.",
+    "keywords": [
+      "we",
+      "networks",
+      "mapping",
+      "from",
+      "loss",
+      "image-to-image"
+    ],
+    "url": "https://doi.org/10.1109/cvpr.2017.632"
+  },
+  {
+    "id": "iccv2017-10-1109-iccv-2017-322",
+    "title": "Mask R-CNN",
+    "doi": "10.1109/iccv.2017.322",
+    "venue": "ICCV",
+    "year": 2017,
+    "authors": [
+      "Kaiming He",
+      "Georgia Gkioxari",
+      "Piotr Dollár",
+      "Ross Girshick"
+    ],
+    "abstract": "We present a conceptually simple, flexible, and general framework for object instance segmentation. Our approach efficiently detects objects in an image while simultaneously generating a high-quality segmentation mask for each instance. The method, called Mask R-CNN, extends Faster R-CNN by adding a branch for predicting an object mask in parallel with the existing branch for bounding box recognition. Mask R-CNN is simple to train and adds only a small overhead to Faster R-CNN, running at 5 fps. Moreover, Mask R-CNN is easy to generalize to other tasks, e.g., allowing us to estimate human poses in the same framework. We show top results in all three tracks of the COCO suite of challenges, including instance segmentation, bounding-box object detection, and person keypoint detection. Without tricks, Mask R-CNN outperforms all existing, single-model entries on every task, including the COCO 2016 challenge winners. We hope our simple and effective approach will serve as a solid baseline and help ease future research in instance-level recognition. Code will be made available.",
+    "keywords": [
+      "mask",
+      "r-cnn",
+      "we",
+      "simple",
+      "object",
+      "instance"
+    ],
+    "url": "https://doi.org/10.1109/iccv.2017.322"
+  },
+  {
+    "id": "cvpr2017-10-1109-cvpr-2017-16",
+    "title": "PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation",
+    "doi": "10.1109/cvpr.2017.16",
+    "venue": "CVPR",
+    "year": 2017,
+    "authors": [
+      "Raffaelli Charles",
+      "Hao Su",
+      "Kaichun Mo",
+      "Leonidas J. Guibas"
+    ],
+    "abstract": "Point cloud is an important type of geometric data structure. Due to its irregular format, most researchers transform such data to regular 3D voxel grids or collections of images. This, however, renders data unnecessarily voluminous and causes issues. In this paper, we design a novel type of neural network that directly consumes point clouds, which well respects the permutation invariance of points in the input. Our network, named PointNet, provides a unified architecture for applications ranging from object classification, part segmentation, to scene semantic parsing. Though simple, PointNet is highly efficient and effective. Empirically, it shows strong performance on par or even better than state of the art. Theoretically, we provide analysis towards understanding of what the network has learnt and why the network is robust with respect to input perturbation and corruption.",
+    "keywords": [
+      "network",
+      "pointnet",
+      "point",
+      "data",
+      "classification",
+      "segmentation"
+    ],
+    "url": "https://doi.org/10.1109/cvpr.2017.16"
+  },
+  {
+    "id": "cvpr2016-10-1109-cvpr-2016-91",
+    "title": "You Only Look Once: Unified, Real-Time Object Detection",
+    "doi": "10.1109/cvpr.2016.91",
+    "venue": "CVPR",
+    "year": 2016,
+    "authors": [
+      "Joseph Redmon",
+      "Santosh Divvala",
+      "Ross Girshick",
+      "Ali Farhadi"
+    ],
+    "abstract": "We present YOLO, a new approach to object detection. Prior work on object detection repurposes classifiers to perform detection. Instead, we frame object detection as a regression problem to spatially separated bounding boxes and associated class probabilities. A single neural network predicts bounding boxes and class probabilities directly from full images in one evaluation. Since the whole detection pipeline is a single network, it can be optimized end-to-end directly on detection performance. Our unified architecture is extremely fast. Our base YOLO model processes images in real-time at 45 frames per second. A smaller version of the network, Fast YOLO, processes an astounding 155 frames per second while still achieving double the mAP of other real-time detectors. Compared to state-of-the-art detection systems, YOLO makes more localization errors but is less likely to predict false positives on background. Finally, YOLO learns very general representations of objects. It outperforms other detection methods, including DPM and R-CNN, when generalizing from natural images to other domains like artwork.",
+    "keywords": [
+      "detection",
+      "yolo",
+      "object",
+      "real-time",
+      "network",
+      "unified"
+    ],
+    "url": "https://doi.org/10.1109/cvpr.2016.91"
+  }
+]

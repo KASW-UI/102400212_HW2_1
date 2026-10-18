@@ -7,7 +7,9 @@ import { RouterLink } from 'vue-router'
 
 const props = defineProps({
   paper: { type: Object, required: true },
-  compact: { type: Boolean, default: false }
+  compact: { type: Boolean, default: false },
+  // 演示模式（GitHub Pages 静态部署）：隐藏 编辑 / 删除 / 爬取 按钮
+  readonly: { type: Boolean, default: false }
 })
 
 defineEmits(['edit', 'delete', 'crawl'])
@@ -48,8 +50,10 @@ const venueColor = computed(() => {
       <a v-if="paper.url" :href="paper.url" target="_blank" rel="noopener" class="btn btn-sm btn-ghost">↗ 原文链接</a>
       <RouterLink :to="`/paper/${paper.id}`" class="btn btn-sm btn-ghost">详情</RouterLink>
       <slot name="actions">
-        <button class="btn btn-sm" @click="$emit('edit', paper)">编辑</button>
-        <button class="btn btn-sm btn-danger" @click="$emit('delete', paper)">删除</button>
+        <template v-if="!readonly">
+          <button class="btn btn-sm" @click="$emit('edit', paper)">编辑</button>
+          <button class="btn btn-sm btn-danger" @click="$emit('delete', paper)">删除</button>
+        </template>
       </slot>
     </footer>
   </article>
